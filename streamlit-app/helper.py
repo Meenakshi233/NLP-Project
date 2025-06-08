@@ -4,8 +4,16 @@ import distance
 from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
-from nltk.corpus import stopwords
+
 import os
+
+# Download stopwords only if not already downloaded
+try:
+    nltk.data.find("corpora/stopwords")
+except LookupError:
+    nltk.download("stopwords")
+    
+from nltk.corpus import stopwords
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 cv_path = os.path.join(BASE_DIR, "cv.pkl")
