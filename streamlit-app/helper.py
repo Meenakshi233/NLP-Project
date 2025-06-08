@@ -5,8 +5,13 @@ from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
 from nltk.corpus import stopwords
+import os
 
-cv = pickle.load(open('cv.pkl','rb'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+cv_path = os.path.join(BASE_DIR, "cv.pkl")
+cv = pickle.load(open(cv_path, 'rb'))
+
+# cv = pickle.load(open('cv.pkl','rb'))
 
 def test_common_words(q1,q2):
     w1 = set(map(lambda word: word.lower().strip(), q1.split(" ")))
