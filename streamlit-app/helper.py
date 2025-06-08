@@ -4,7 +4,7 @@ import distance
 from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
-
+import nltk
 import os
 
 # Download stopwords only if not already downloaded
